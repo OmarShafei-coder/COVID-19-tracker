@@ -8,7 +8,7 @@ public class Module {
     private String deaths;
     private String recovered;
 
-    public Module(String imageUrl, String countryName, String cases, String deaths, String recovered) {
+    Module(String imageUrl, String countryName, String cases, String deaths, String recovered) {
         this.imageUrl = imageUrl;
         this.countryName = countryName;
         this.cases = cases;
@@ -16,23 +16,23 @@ public class Module {
         this.recovered = recovered;
     }
 
-    public String getImageUrl() {
+    String getImageUrl() {
         return imageUrl;
     }
 
-    public String getCountryName() {
+    String getCountryName() {
         return countryName;
     }
 
-    public String getCases() {
+    String getCases() {
         return cases;
     }
 
-    public String getDeaths() {
+    String getDeaths() {
         return deaths;
     }
 
-    public String getRecovered() {
+    String getRecovered() {
         return recovered;
     }
 }

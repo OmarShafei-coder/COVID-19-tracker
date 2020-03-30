@@ -5,8 +5,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -21,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -32,7 +37,7 @@ public class WorldFragment extends Fragment {
 
     private String strJson;
     //Define Arraylist of user defined objects
-    private ArrayList<Module> data = new ArrayList<>();
+    private List<Module> data = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -85,7 +90,7 @@ public class WorldFragment extends Fragment {
         return root;
     }
 
-    private ArrayList<Module> parseJson(String strJson){
+    private List<Module> parseJson(String strJson){
         try {
             JSONArray jsonArray = new JSONArray(strJson);
 
@@ -122,7 +127,7 @@ public class WorldFragment extends Fragment {
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
 
         //Define an adapter from CoronaDataAdapter class
-        CoronaDataAdapter adapter = new CoronaDataAdapter(getActivity(), data);
+        final CoronaDataAdapter adapter = new CoronaDataAdapter(data);
         //Assign the adapter to the recyclerView using setAdapter method
         recyclerView.setAdapter(adapter);
         //Set the layout manager using setLayoutManager method
@@ -130,5 +135,20 @@ public class WorldFragment extends Fragment {
         //Add borders between items using addItemDecoration method
         recyclerView.addItemDecoration(new DividerItemDecoration(Objects.requireNonNull(getActivity()), DividerItemDecoration.VERTICAL));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL));
+
+        SearchView searchView = root.findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+        });
     }
 }

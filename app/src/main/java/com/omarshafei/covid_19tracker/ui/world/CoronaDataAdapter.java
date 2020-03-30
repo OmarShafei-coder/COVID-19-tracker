@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,14 +16,15 @@ import com.omarshafei.covid_19tracker.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CoronaDataAdapter extends RecyclerView.Adapter<CoronaDataAdapter.CustomViewHolder> {
+public class CoronaDataAdapter extends RecyclerView.Adapter<CoronaDataAdapter.CustomViewHolder> implements Filterable {
 
-    private ArrayList<Module> data;
-
-    CoronaDataAdapter(Context context, ArrayList<Module> data) {
+    private List<Module> data;
+    private List<Module> dataCopy;
+    CoronaDataAdapter(List<Module> data) {
         this.data = data;
-        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        dataCopy = new ArrayList<>(data);
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
@@ -69,4 +72,40 @@ public class CoronaDataAdapter extends RecyclerView.Adapter<CoronaDataAdapter.Cu
     public int getItemCount() {
         return data.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return dataFilter;
+    }
+
+    private Filter dataFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+
+            List<Module> filteredData = new ArrayList<>();
+
+            if(charSequence == null || charSequence.length() == 0){
+                filteredData.addAll(dataCopy);
+            }else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+
+                for (Module module : dataCopy){
+                    if(module.getCountryName().toLowerCase().contains(filterPattern)){
+                        filteredData.add(module);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredData;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            data.clear();
+            data.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 }
