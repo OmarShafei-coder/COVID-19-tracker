@@ -1,8 +1,8 @@
-# Features
+#Features
 1- nice UI.
 2- Searching functionality.
 
-# Dependencies:
+#Dependencies:
     implementation 'com.google.android.material:material:1.1.0'
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
