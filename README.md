@@ -13,5 +13,6 @@
     implementation 'androidx.navigation:navigation-ui:2.2.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
+<img src="screenshots/screen1.jpg" width="300" height="600" > <img src="screenshots/screen2.jpg" width="300" height="600" >
 
-
+<img src="screenshots/screen3.jpg" width="300" height="600" > <img src="screenshots/screen4.jpg" width="300" height="600" >
