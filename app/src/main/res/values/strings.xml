@@ -1,6 +1,32 @@
 <resources>
-    <string name="app_name">Covid-19 tracker</string>
+    <string name="app_name" translatable="false">COVID-19 Tracker</string>
     <string name="title_home">Egypt</string>
     <string name="title_world">World</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_contact">Contact me</string>
+
+    <!-- home fragment-->
+    <string name="hot_line">Hot Line</string>
+    <string name="_15335" translatable="false">15335</string>
+    <string name="_105" translatable="false">105</string>
+    <string name="today_confirmed_cases">Today confirmed cases</string>
+    <string name="total_confirmed_cases">Total confirmed cases</string>
+    <string name="total_deaths">Total deaths</string>
+    <string name="today_deaths">Today deaths</string>
+    <string name="total_recovered">Recovered</string>
+    <string name="_0" translatable="false">0</string>
+
+    <!-- world fragment-->
+    <string name="confirmed">Confirmed:" "</string>
+    <string name="deaths">Deaths:" "</string>
+    <string name="recovered">Recovered:" "</string>
+
+    <!-- contact fragment-->
+    <string name="email" translatable="false">omarshafhy.os@gmail.com</string>
+    <string name="linkedIn" translatable="false">Omar Shafei</string>
+    <string name="note">NOTE</string>
+    <string name="updating_time">Data is being updated by World Health Organization (WHO).
+                                 Egypt data is updated almost at 10 PM.</string>
+    <string name="search">Search</string>
+
+
 </resources>

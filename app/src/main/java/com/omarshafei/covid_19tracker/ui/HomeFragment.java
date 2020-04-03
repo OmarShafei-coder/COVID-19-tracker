@@ -1,24 +1,25 @@
-package com.omarshafei.covid_19tracker.ui.home;
-
-import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+package com.omarshafei.covid_19tracker.ui;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.omarshafei.covid_19tracker.R;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -32,10 +33,6 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-
-
-import com.omarshafei.covid_19tracker.R;
 
 public class HomeFragment extends Fragment {
 
@@ -51,12 +48,21 @@ public class HomeFragment extends Fragment {
         final TextView totalRecovered = root.findViewById(R.id.total_recovered_people);
 
         final TextView hotLine105 = root.findViewById(R.id.hot_line_105);
+        final TextView hotLine15335 = root.findViewById(R.id.hot_line_15335);
         addUnderlineText(hotLine105);
+        addUnderlineText(hotLine15335);
 
         hotLine105.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialPhoneNumber();
+                dialPhoneNumber("105");
+            }
+        });
+
+        hotLine15335.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialPhoneNumber("15335");
             }
         });
         // Get a reference to the ConnectivityManager to check state of network connectivity
@@ -128,9 +134,9 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    private void dialPhoneNumber() {
+    private void dialPhoneNumber(String number) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
-        intent.setData(Uri.parse("tel:" + "105"));
+        intent.setData(Uri.parse("tel:" + number));
         if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null) {
             startActivity(intent);
         }
@@ -159,8 +165,8 @@ public class HomeFragment extends Fragment {
     /**
      * @param textView the underlined text
      */
-    private void addUnderlineText(TextView textView){
-        SpannableString content = new SpannableString( "105" );
+    public void addUnderlineText(TextView textView){
+        SpannableString content = new SpannableString( textView.getText().toString() );
         content.setSpan( new UnderlineSpan() , 0 , content.length() , 0 );
         textView.setText(content);
     }

@@ -11,4 +11,9 @@
         android:id="@+id/navigation_world"
         android:icon="@drawable/ic_public_black_24dp"
         android:title="@string/title_world" />
+
+    <item
+        android:id="@+id/navigation_contact"
+        android:icon="@drawable/ic_contact_mail_black_24dp"
+        android:title="@string/title_contact" />
 </menu>

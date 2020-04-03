@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">COVID-19 Tracker</string>
+    <string name="title_home">مصر</string>
+    <string name="title_world">العالم</string>
+    <string name="title_contact">تواصل معي</string>
+    <string name="hot_line">الخط الساخن</string>
+    <string name="today_confirmed_cases">عدد حالات اليوم</string>
+    <string name="total_deaths">إجمالي الوفيات</string>
+    <string name="today_deaths">عدد وفيات اليوم</string>
+    <string name="total_recovered">المتعافون</string>
+    <string name="confirmed">"الحالات: "</string>
+    <string name="deaths">"الوفيات: "</string>
+    <string name="recovered">"المتعافون: "</string>
+    <string name="note">هام</string>
+    <string name="updating_time">تقوم منظمة الصحة العالمية بتحديث البيانات. يتم تحديث بيانات مصر في العاشرة  مساءً تقريبًا.</string>
+    <string name="total_confirmed_cases">إجمالي الحالات</string>
+    <string name="search">"ابحث باسم الدولة باللغة الإنجليزية "</string>
+</resources>

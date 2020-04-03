@@ -4,15 +4,18 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="55dp"
+    android:layout_marginHorizontal="16dp"
     android:orientation="vertical"
     android:weightSum="100">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="20"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="30"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp">
@@ -20,30 +23,57 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginVertical="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ministry_burned" />
 
             <TextView
                 android:id="@+id/hot_line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hot line"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_margin="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/hot_line"
+                android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#fff"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/hot_line_15335"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_horizontal"
+                android:text="@string/_15335"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#A5D6A7"
+                app:layout_constraintEnd_toEndOf="@id/hot_line"
+                app:layout_constraintStart_toEndOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@id/hot_line" />
 
             <TextView
                 android:id="@+id/hot_line_105"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:background="?attr/selectableItemBackground"
-                android:text="105"
+                android:text="@string/_105"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="#fff"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hot_line" />
+                android:textColor="#A5D6A7"
+                app:layout_constraintEnd_toEndOf="@id/hot_line_15335"
+                app:layout_constraintStart_toEndOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@id/hot_line_15335" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -54,21 +84,20 @@
         android:id="@+id/total_infected"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="14"
         app:cardBackgroundColor="#FF8A65"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp">
+        app:cardCornerRadius="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="16dp">
+            android:layout_marginHorizontal="16dp">
 
             <TextView
                 style="@style/textTheme"
-                android:text="Total confirmed cases"
+                android:text="@string/total_confirmed_cases"
                 android:textAppearance="?android:textAppearanceMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -77,12 +106,11 @@
             <TextView
                 android:id="@+id/total_infected_people"
                 style="@style/textTheme"
-                android:layout_margin="8dp"
-                android:text="290"
+                android:text="@string/_0"
                 android:textAppearance="?android:textAppearanceLarge"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -92,7 +120,7 @@
         android:id="@+id/today_infected"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="14"
         app:cardBackgroundColor="#FF8A65"
         app:cardCornerRadius="20dp">
@@ -101,20 +129,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="16dp">
+            android:layout_marginHorizontal="16dp">
 
             <TextView
                 style="@style/textTheme"
-                android:text="Today confirmed cases"
+                android:text="@string/today_confirmed_cases"
                 android:textAppearance="?android:textAppearanceMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/today_infected_people"
                 style="@style/textTheme"
-                android:text="0"
+                android:text="@string/_0"
                 android:textAppearance="?android:textAppearanceLarge"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +156,7 @@
         android:id="@+id/total_deaths"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="14"
         app:cardBackgroundColor="#EF5350"
         app:cardCornerRadius="20dp">
@@ -137,20 +165,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="16dp">
+            android:layout_marginHorizontal="16dp">
 
             <TextView
                 style="@style/textTheme"
-                android:text="Total deaths"
+                android:text="@string/total_deaths"
                 android:textAppearance="?android:textAppearanceMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/total_dead_people"
                 style="@style/textTheme"
-                android:text="10"
+                android:text="@string/_0"
                 android:textAppearance="?android:textAppearanceLarge"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +192,7 @@
         android:id="@+id/today_deaths"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="14"
         app:cardBackgroundColor="#EF5350"
         app:cardCornerRadius="20dp">
@@ -173,11 +201,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="16dp">
+            android:layout_marginHorizontal="16dp">
 
             <TextView
                 style="@style/textTheme"
-                android:text="Today deaths"
+                android:text="@string/today_deaths"
                 android:textAppearance="?android:textAppearanceMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -186,7 +214,7 @@
             <TextView
                 android:id="@+id/today_dead_people"
                 style="@style/textTheme"
-                android:text="0"
+                android:text="@string/_0"
                 android:textAppearance="?android:textAppearanceLarge"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -200,7 +228,8 @@
         android:id="@+id/total_recovered"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="14"
         app:cardBackgroundColor="#66BB6A"
         app:cardCornerRadius="20dp">
@@ -209,11 +238,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="16dp">
+            android:layout_marginHorizontal="16dp">
 
             <TextView
                 style="@style/textTheme"
-                android:text="Recovered"
+                android:text="@string/total_recovered"
                 android:textAppearance="?android:textAppearanceMedium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -222,7 +251,7 @@
             <TextView
                 android:id="@+id/total_recovered_people"
                 style="@style/textTheme"
-                android:text="42"
+                android:text="@string/_0"
                 android:textAppearance="?android:textAppearanceLarge"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -233,3 +262,5 @@
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>
+
+

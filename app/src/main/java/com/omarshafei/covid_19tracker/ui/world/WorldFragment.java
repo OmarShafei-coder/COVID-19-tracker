@@ -5,12 +5,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -18,7 +15,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.omarshafei.covid_19tracker.R;
-import com.omarshafei.covid_19tracker.ui.home.HomeFragment;
+import com.omarshafei.covid_19tracker.ui.HomeFragment;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -102,11 +99,11 @@ public class WorldFragment extends Fragment {
 
                 String country   = jsonObject.getString("country");
 
-                String cases     = "Confirmed: " + jsonObject.getInt("cases");
+                String cases     = getResources().getString(R.string.confirmed) + jsonObject.getInt("cases");
 
-                String deaths    = "Deaths: " + jsonObject.getInt("deaths");
+                String deaths    = getResources().getString(R.string.deaths) + jsonObject.getInt("deaths");
 
-                String recovered = "Recovered: " + jsonObject.getInt("recovered");
+                String recovered = getResources().getString(R.string.recovered) + jsonObject.getInt("recovered");
 
                 data.add(new Module(imageUrl, country, cases, deaths, recovered));
             }
@@ -125,7 +122,8 @@ public class WorldFragment extends Fragment {
 
         //Define a RecyclerView
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
-
+        //Define a SearchView
+        SearchView searchView = root.findViewById(R.id.search_view);
         //Define an adapter from CoronaDataAdapter class
         final CoronaDataAdapter adapter = new CoronaDataAdapter(data);
         //Assign the adapter to the recyclerView using setAdapter method
@@ -136,11 +134,20 @@ public class WorldFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(Objects.requireNonNull(getActivity()), DividerItemDecoration.VERTICAL));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL));
 
-        SearchView searchView = root.findViewById(R.id.search_view);
+        //searching
+        search(searchView, adapter);
+    }
+
+
+    /**
+     * @param searchView the view where the user type
+     * @param adapter the adapter which contains the list to be searched
+     */
+    private void search(SearchView searchView, final CoronaDataAdapter adapter){
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-
                 return false;
             }
 

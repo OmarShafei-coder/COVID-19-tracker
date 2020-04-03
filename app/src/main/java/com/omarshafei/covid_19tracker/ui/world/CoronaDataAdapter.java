@@ -1,6 +1,5 @@
 package com.omarshafei.covid_19tracker.ui.world;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +23,11 @@ public class CoronaDataAdapter extends RecyclerView.Adapter<CoronaDataAdapter.Cu
     private List<Module> dataCopy;
     CoronaDataAdapter(List<Module> data) {
         this.data = data;
+        //copy the list for searching purpose
         dataCopy = new ArrayList<>(data);
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    static class CustomViewHolder extends RecyclerView.ViewHolder {
         //Views inside the list_item xml file
         private ImageView image;
         private TextView countryName;
@@ -43,7 +43,6 @@ public class CoronaDataAdapter extends RecyclerView.Adapter<CoronaDataAdapter.Cu
             totalCases = itemView.findViewById(R.id.infected);
             totalDeaths = itemView.findViewById(R.id.deaths);
             totalRecovered = itemView.findViewById(R.id.recovered);
-
         }
     }
 
@@ -65,7 +64,6 @@ public class CoronaDataAdapter extends RecyclerView.Adapter<CoronaDataAdapter.Cu
         holder.totalCases.setText(currentElement.getCases());
         holder.totalDeaths.setText(currentElement.getDeaths());
         holder.totalRecovered.setText(currentElement.getRecovered());
-
     }
     @Override
     //number of items in the list
@@ -73,6 +71,8 @@ public class CoronaDataAdapter extends RecyclerView.Adapter<CoronaDataAdapter.Cu
         return data.size();
     }
 
+    //////////////////////////////////////////
+    /**searching in the recyclerView*/
     @Override
     public Filter getFilter() {
         return dataFilter;
