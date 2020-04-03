@@ -1,8 +1,11 @@
 # Features
 1- Responsive design.
+
 2- Searching functionality.
+
 3- Support two languages(English, Arabic):
     Depending on the mobile device language 
+    
 # Dependencies:
     implementation 'com.google.android.material:material:1.1.0'
     implementation "androidx.cardview:cardview:1.0.0"
