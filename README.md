@@ -1,3 +1,5 @@
+
+
 # Features
 1- Responsive design.
 
@@ -5,6 +7,9 @@
 
 3- Support two languages(English, Arabic):
     Depending on the mobile device language 
+
+# Download link:
+https://dl.orangedox.com/coronaTracker
     
 # Dependencies:
     implementation 'com.google.android.material:material:1.1.0'
