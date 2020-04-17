@@ -10,6 +10,9 @@
 
 # Download link:
 https://dl.orangedox.com/coronaTracker
+
+# API used:
+https://corona.lmao.ninja
     
 # Dependencies:
     implementation 'com.google.android.material:material:1.1.0'
