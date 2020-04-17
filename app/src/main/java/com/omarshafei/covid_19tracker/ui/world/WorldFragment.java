@@ -49,7 +49,7 @@ public class WorldFragment extends Fragment {
 
         // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
-            String worldData = "https://corona.lmao.ninja/countries?sort=cases";
+            String worldData = "https://corona.lmao.ninja/v2/countries?sort=cases";
 
             //HTTP request
             OkHttpClient client = new OkHttpClient();

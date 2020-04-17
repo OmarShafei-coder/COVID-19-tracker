@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
 
         // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
-            String egyptData = "https://corona.lmao.ninja/countries/egypt";
+            String egyptData = "https://corona.lmao.ninja/v2/countries/egypt";
 
             //HTTP request
             OkHttpClient client = new OkHttpClient();
